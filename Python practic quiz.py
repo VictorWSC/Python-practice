@@ -7,31 +7,45 @@ while play == "yes":
     #Greet the user and introduce the quiz
     print ("Welcome to my quiz,",name)
     print ("This quiz is about Animals")
-    #Question1
-    question = "Whats the animal with the longest life span?".lower()
-    a = "Galapagos Tortoise".lower()
-    b = "The Immortal Jellyfih".lower()
-    c = "Glass sponge".lower()
-    d = "tubeworm".lower()
-    answer=input (QUESTION_FORMAT.format(question, a, b, c, d)).lower()
+    #retry
+    while True:
+        try:
+            tries = input("How many tries per question do you want? 1-4")
+            tries = int(tries)
+            break
+        except:
+            print("that's not a number")
+
+    question_tries=tries
+    while question_tries > 0:
+        question = "Whats the animal with the longest life span?".lower()
+        a = "Galapagos Tortoise".lower()
+        b = "The Immortal Jellyfih".lower()
+        c = "Glass sponge".lower()
+        d = "tubeworm".lower()
+        answer=input (QUESTION_FORMAT.format(question, a, b, c, d)).lower()
     #Answer 1
-    if answer==b.lower() or answer=="b".lower() or answer=="the immortal jellyfish".lower():
-        print("correct")
-        score+=10
-    elif answer==(""):
-        print("I see you didn't write anything")
-    elif answer != a and answer != "a" and answer != b and answer != "b" and answer != c and answer != "c" and answer != d and answer != "d" and answer != "the immortal jellyfish":
-        print ("That was not a choice")
-    else :
-        print("Incorrect")
-        print ("The answer was The Immortal Jellyfish")
-        score-=5
+        if answer==b.lower() or answer=="b".lower() or answer=="the immortal jellyfish".lower():
+            print("correct")
+            score+=10
+            break
+        elif answer==(""):
+            print("I see you didn't write anything")
+        elif answer != a and answer != "a" and answer != b and answer != "b" and answer != c and answer != "c" and answer != d and answer != "d" and answer != "the immortal jellyfish":
+            print ("That was not a choice")
+        else :
+            print("Incorrect")
+            score-=5
+
+        question_tries -=1
+    print ("The answer was The Immortal Jellyfish")
     #Question2
     answer=input ("Whats the heaviest animal?").lower()
     #Answer 2
     if answer=="Blue Whale".lower() or answer=="blue whale".lower():
         print("correct")
         score+=10
+        break
     elif answer==(""):
         print("I see you didn't write anything")
     else :
@@ -44,6 +58,7 @@ while play == "yes":
     if answer=="Horseshoe Crab".lower() or answer=="horseshoe crab".lower():
         print("correct")
         score+=10
+        break
     elif answer==(""):
         print("I see you didn't write anything")
     else :
@@ -56,6 +71,7 @@ while play == "yes":
     if answer=="Mosquito".lower() or answer=="mosquito".lower():
         print("correct")
         score+=10
+        break
     elif answer==(""):
         print("I see you didn't write anything")
     else :
